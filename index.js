@@ -6,18 +6,79 @@ app.post('/vapi', (req, res) => {
   const transcript = req.body.transcript?.toLowerCase() || "";
 
   if (transcript.includes("appointment")) {
-    return res.json({
-      type: "say",
-      text: "<speak>Let me check real quick... <break time='500ms'/> Okay, I have 10:15 or 3:30 available. Would you like me to reserve one for you?</speak>",
-      bargeIn: true
-    });
-  }
+    return res.json([
+      {
+        type: "say",
+        text: `<speak>
+          Let me just check real quick...
+          <break time="500ms"/>
+        </speak>`,
+        bargeIn: true
+      },
+      {
+        type: "say",
+        text: `<speak>
+          Okay — we’ve got walk-in availability all day. 
+          <break time="400ms"/>
+          But if you’d like, I can pre-register you for around ten fifteen... or maybe three thirty.
+          <break time="400ms"/>
+          What works better for you?
+        </speak>`,
+        bargeIn: true
+      }
+    ]);
+  }  
 
   return res.json({
-    type: "say",
-    text: "<speak>Hi there, thanks for calling. How can I help you today?</speak>",
-    bargeIn: true
-  });
+  type: "say",
+  text: `<speak>
+    Hmm... not totally sure what you meant just now. 
+    <break time="400ms"/>
+    But I can definitely help — could you say that one more time?
+  </speak>`,
+  bargeIn: true
+});
+
+  return res.json({
+  type: "say",
+  text: `<speak>
+    Hmm... not totally sure what you meant just now. 
+    <break time="400ms"/>
+    But I can definitely help — could you say that one more time?
+  </speak>`,
+  bargeIn: true
+});
+
+  return res.json({
+  type: "say",
+  text: `<speak>
+    Hmm... not totally sure what you meant just now. 
+    <break time="400ms"/>
+    But I can definitely help — could you say that one more time?
+  </speak>`,
+  bargeIn: true
+});
+
+  return res.json({
+  type: "say",
+  text: `<speak>
+    Hmm... not totally sure what you meant just now. 
+    <break time="400ms"/>
+    But I can definitely help — could you say that one more time?
+  </speak>`,
+  bargeIn: true
+});
+
+  return res.json({
+  type: "say",
+  text: `<speak>
+    Hmm... not totally sure what you meant just now. 
+    <break time="400ms"/>
+    But I can definitely help — could you say that one more time?
+  </speak>`,
+  bargeIn: true
+});
+
 });
 
 app.get('/', (req, res) => res.send('Vapi webhook live'));
