@@ -19,15 +19,13 @@ app.post('/vapi', (req, res) => {
     return res.json({
       type: "say",
       text: `<speak>
-        Sure — our website is
-        <break time="300ms"/>
-        www dot A F C urgent care dot com.
-        <break time="300ms"/>
-        Let me know if you'd like me to text that to you.
+        You can find us at afcurgentcare dot com.
+        <break time="400ms"/>
+        Would you like me to text that to you?
       </speak>`,
       bargeIn: true
     });
-  }  
+  }      
 
   // Hours intent
   if (transcript.includes("hours") || transcript.includes("open") || transcript.includes("close")) {
